@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <!-- Link to CSS files -->
+    <link rel="stylesheet" href="navbar-desktop.css" id="desktop-css">
+    <link rel="stylesheet" href="navbar-mobile.css" id="mobile-css">
+</head>
+<body>
+    <!-- Desktop Navbar -->
+    <div id="desktop-navbar">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="/">
+                    <img src="assets/images.png" alt="Logo">
+                </a>
+            </div>
+            <ul class="nav-items">
+                <li class="nav-item dropdown">
+                    <a href="#" class="dropbtn">Products</a>
+                    <!-- Dropdown content for Products -->
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="dropbtn">Resources</a>
+                    <!-- Dropdown content for Resources -->
+                </li>
+                <li class="nav-item"><a href="#">Blogs</a></li>
+                <li class="nav-item"><a href="#">About us</a></li>
+                <li class="nav-item"><a href="/contact-us">Contact us</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="#" class="activate-trial">Activate Trial</a>
+                <a href="#" class="btn sign-in">Sign In</a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Mobile Navbar -->
+    <div id="mobile-navbar" style="display: none;">
+        <nav class="mobile-navbar">
+            <div class="mobile-logo">
+                <a href="/">
+                    <img src="assets/logo.png" alt="Logo">
+                </a>
+            </div>
+            <div class="mobile-nav-buttons">
+                <a href="#" class="mobile-activate-trial">Activate Trial</a>
+                <a href="#" class="mobile-sign-in">Sign In</a>
+            </div>
+            <div class="mobile-nav-items">
+                <a href="#">Products</a>
+                <a href="#">Resources</a>
+                <a href="#">Blogs</a>
+                <a href="#">About us</a>
+                <a href="/contact-us">Contact us</a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- JavaScript to switch between desktop and mobile -->
+    <script>
+        function checkScreenSize() {
+            if (window.innerWidth <= 768) { // If screen size is 768px or less
+                document.getElementById('desktop-navbar').style.display = 'none';
+                document.getElementById('mobile-navbar').style.display = 'block';
+                document.getElementById('desktop-css').disabled = true;
+                document.getElementById('mobile-css').disabled = false;
+            } else {
+                document.getElementById('desktop-navbar').style.display = 'block';
+                document.getElementById('mobile-navbar').style.display = 'none';
+                document.getElementById('desktop-css').disabled = false;
+                document.getElementById('mobile-css').disabled = true;
+            }
+        }
+
+        window.addEventListener('resize', checkScreenSize);
+        window.addEventListener('load', checkScreenSize);
+    </script>
+</body>
+</html>
